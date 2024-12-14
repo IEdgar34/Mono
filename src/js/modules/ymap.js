@@ -1,9 +1,9 @@
 const yMapsInit = () => {
-    async function prom() {
+    /* async function prom() {
         await ymaps3.ready;
         initMap();
     }
-    prom();
+    prom(); */
     async function initMap() {
         // Промис `ymaps3.ready` будет зарезолвлен, когда загрузятся все компоненты основного модуля API
         await ymaps3.ready;
@@ -49,6 +49,7 @@ const yMapsInit = () => {
             map.addChild(marker);
         });
     }
+    initMap();
 };
 
 export { yMapsInit };
