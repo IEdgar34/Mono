@@ -1,11 +1,9 @@
 const yMapsInit = () => {
-    if (typeof ymaps3 !== "object") {
-        console.log("Api не загрузилась");
-        setTimeout(() => initMap(), 3000);
-    } else {
+    async function prom() {
+        await ymaps3.ready;
         initMap();
     }
-
+    prom();
     async function initMap() {
         // Промис `ymaps3.ready` будет зарезолвлен, когда загрузятся все компоненты основного модуля API
         await ymaps3.ready;
