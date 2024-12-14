@@ -102,6 +102,7 @@ module.exports = {
                         "default",
                         {
                             // Отключение сортировки CSS-свойств
+                            normalizeUrls: false,
                             cssDeclarationSorter: false,
                         },
                     ],

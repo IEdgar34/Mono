@@ -1,1 +1,9 @@
-@font-face{font-family:RoadRadio,sans-serif;src:url(../fonts/RoadRadio.eot);src:local("RoadRadio"),url(../fonts/RoadRadio.eot?#iefix) format("embedded-opentype"),url(../fonts/RoadRadio.woff2) format("woff2"),url(../fonts/RoadRadio.woff) format("woff"),url(../fonts/RoadRadio.ttf) format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face {
+    font-family: "RoadRadio", sans-serif;
+    src: url("../fonts/RoadRadio.eot");
+    src: local("RoadRadio"), url("../fonts/RoadRadio.eot?#iefix") format("embedded-opentype"), url("../fonts/RoadRadio.woff2") format("woff2"),
+        url("../fonts/RoadRadio.woff") format("woff"), url("../fonts/RoadRadio.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
