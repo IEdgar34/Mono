@@ -1,0 +1,267 @@
+@use "../mixins/mixins" as w;
+.contacts__wrapper {
+    width: 100%;
+    height: auto;
+}
+.contacts {
+    width: 100%;
+    height: auto;
+    padding: 62px 0 66px 0;
+    background-color: var(--color-white-normal);
+    @media (max-width: 768px) {
+        padding: 40px 0 50px 0;
+    }
+    @media (max-width: 320px) {
+        padding: 30px 0 50px 0;
+    }
+    &__inner {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        @media (max-width: 700px) {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+    &__info {
+        @include w.fluid-width(267, 607);
+        @media (max-width: 700px) {
+            width: 100%;
+        }
+        ul {
+            @include w.fluid-width(267, 506);
+            margin-top: 20px;
+            font-family: "Golos Text", sans-serif;
+            color: var(--color-grey-superlight);
+            @include w.fluid-text(13, 13);
+            font-weight: 400;
+            line-height: 150%;
+            @media (max-width: 700px) {
+                width: 100%;
+            }
+            &:nth-of-type(1) {
+                margin-bottom: 15px;
+                color: var(--color-black-normal);
+                @include w.fluid-text(14, 17);
+                font-weight: 400;
+                line-height: 110%;
+                li {
+                    margin-top: 6px;
+                }
+            }
+        }
+    }
+    &__info-links {
+        a {
+            display: block;
+            width: max-content;
+            font-family: "RoadRadio" sans-serif;
+            @include w.fluid-text(28, 36);
+            color: var(--color-black-normal);
+            font-weight: 400;
+            line-height: 110%;
+            &:nth-child(2) {
+                margin-top: 6px;
+                margin-bottom: 20px;
+                font-family: "Golos Text", sans-serif;
+                color: var(--color-red-norml);
+                @include w.fluid-text(25, 25);
+                font-weight: 400;
+                line-height: 30px;
+            }
+        }
+    }
+    &__form {
+        /* @include w.fluid-width(290, 630); */
+        @media (max-width: 1287px) {
+            max-width: 350px;
+            display: flex;
+            flex-direction: column;
+        }
+        @media (max-width: 700px) {
+            margin-top: 50px;
+        }
+        &-title {
+            margin-bottom: 20px;
+            font-family: "RoadRadio" sans-serif;
+            @include w.fluid-text(20, 36);
+            color: var(--color-black-normal);
+            font-weight: 400;
+            line-height: 110%;
+        }
+    }
+    .form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+        &__row-block {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            row-gap: 28px;
+        }
+
+        &__inputs {
+            padding: 17px 17px 17px 20px;
+            border-radius: 14px;
+            background-color: var(--color--grey-normal);
+            border: none;
+            outline: none;
+            /* border: 4px solid var(--resetcolor); */
+            color: var(--color-black-normal);
+            font-family: "Golos Text", sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 100%;
+            &:-webkit-autofill {
+                color: var(--color-red-norml) !important;
+            }
+            &:-internal-autofill-selected {
+                border: none;
+                appearance: none;
+                background-image: none !important;
+                background-color: var(--resetcolor) !important;
+                box-shadow: 0 0 0px 1000px var(--resetcolor) inset;
+             
+            }
+
+            &::placeholder {
+                color: var(--color-grey-light);
+                font-family: "Golos Text", sans-serif;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 150%;
+            }
+            &:focus {
+                border: 2px solid var(--color-grey-light);
+                background-color: var(--color-white-normal);
+            }
+
+            &[type="text"] {
+                width: 300px;
+                height: 52px;
+                min-width: 290px;
+                @media (max-width: 1287px) {
+                    width: 350px;
+                    margin-right: 0 !important;
+                    
+                }
+                @media (max-width: 400px) {
+                    width: 100%;
+                }
+            }
+            &[name="textarea"] {
+                width: 100%;
+                height: 133px;
+                min-width: 290px;
+                resize: none;
+                @media (max-width: 1287px) {
+                    max-width: 350px;
+                    height: 166px;
+                }
+            }
+            &[type="checkbox"] {
+                width: 100%;
+                height: 133px;
+                min-width: 290px;
+            }
+        }
+        &__checkbox {
+            width: 100%;
+            display: flex;
+            gap: 16px;
+            label {
+                color: var(--color-grey-light);
+                font-family: "Golos Text", sans-serif;
+                font-size: 13px;
+                font-weight: 400;
+                line-height: 120%;
+                cursor: pointer;
+                span {
+                    color: var(--color-black-normal);
+                }
+            }
+            &-wrap {
+                position: relative;
+                width: 20px;
+                height: 20px;
+                flex-shrink: 0;
+            }
+            input {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                scale: 0.8;
+                cursor: pointer;
+                z-index: 9;
+                &:checked {
+                    & + .form__checkbox-fake {
+                        background-color: var(--color-red-norml);
+                        img {
+                            display: block;
+                        }
+                    }
+                }
+                @include w.hover() {
+                    &:hover {
+                        & + .form__checkbox-fake {
+                            background-color: var(--color-red-norml);
+                        }
+                    }
+                    &:active {
+                        & + .form__checkbox-fake {
+                            background-color: var(--color-red-active);
+                        }
+                    }
+                }
+            }
+            &-fake {
+                position: absolute;
+                z-index: 100;
+                width: 20px;
+                height: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 4px;
+                background-color: var(--color--grey-normal);
+                pointer-events: none;
+                img {
+                    display: none;
+                }
+            }
+        }
+        &__btn {
+            display: block;
+            align-self: stretch;
+        }
+    }
+}
+.invalid {
+    display: inline-block;
+    height: max-content;
+    position: relative;
+    & input,
+    textarea {
+        position: relative;
+        background-color: var(--color-red-error-bg) !important;
+        border: none !important;
+        &::placeholder {
+            color: var(--color-red-norml) !important;
+        }
+    }
+    &:after {
+        content: "Является обязательным полем";
+        width: max-content;
+        height: 10px;
+        position: absolute;
+        bottom: -10px;
+        left: 20px;
+        color: var(--color-red-norml);
+        font-family: "Golos Text", sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 150%;
+    }
+}

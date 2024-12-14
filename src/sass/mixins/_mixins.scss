@@ -1,0 +1,22 @@
+@mixin fluid-width($min, $max) {
+    $curent: calc(#{$max} / (1290 / 100));
+    width: clamp(#{$min}px, #{$curent}vw, #{$max}px);
+}
+
+@mixin fluid-text($min, $max) {
+    $curent: calc(#{$max} / (1290 / 100));
+    font-size: clamp(#{$min}px, #{$curent}vw, #{$max}px);
+}
+@mixin hover() {
+    @media (hover: hover) {
+        &:hover {
+            @content;
+        }
+    }
+
+    @media (hover: none) {
+        &:active {
+            @content;
+        }
+    }
+}
