@@ -2,15 +2,10 @@ const yMapsInit = () => {
     async function mapinit(scripturl, collback) {
         const script = document.createElement("script");
         script.src = scripturl;
-        script.async = true;
-        document.head.appendChild(script);
         //
-        
         script.onload = () => {
+            document.head.appendChild(script);
             collback();
-        };
-        script.onerror = () => {
-            console.error("Ошибка загрузки API.");
         };
     }
     mapinit("https://api-maps.yandex.ru/v3/?apikey=d800673c-277d-43d7-a0c5-74797e3df2a7&lang=ru_RU", initMap);
@@ -59,7 +54,7 @@ const yMapsInit = () => {
             map.addChild(marker);
         });
     }
-    /*   initMap(); */
+    /* initMap(); */
 };
 
 export { yMapsInit };
