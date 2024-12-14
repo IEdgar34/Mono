@@ -278,70 +278,112 @@ function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyri
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
 function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
 var yMapsInit = function yMapsInit() {
-  initMap();
-  function initMap() {
-    return _initMap.apply(this, arguments);
-  }
-  function _initMap() {
-    _initMap = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-      var _ymaps, YMap, YMapDefaultSchemeLayer, YMapMarker, YMapDefaultFeaturesLayer, map, markersData;
-      return _regeneratorRuntime().wrap(function _callee$(_context) {
-        while (1) switch (_context.prev = _context.next) {
-          case 0:
-            _context.next = 2;
-            return ymaps3.ready;
-          case 2:
-            _ymaps = ymaps3, YMap = _ymaps.YMap, YMapDefaultSchemeLayer = _ymaps.YMapDefaultSchemeLayer, YMapMarker = _ymaps.YMapMarker, YMapDefaultFeaturesLayer = _ymaps.YMapDefaultFeaturesLayer; //const { YMapDefaultMarker } = await import("@yandex/ymaps3-default-ui-theme");
-            // Иницилиазируем карту
-            map = new YMap(
-            // Передаём ссылку на HTMLElement контейнера
-            document.getElementById("map"),
-            // Передаём параметры инициализации карты
-            {
-              location: {
-                // Координаты центра карты
-                center: [52.97491484537261, 51.17811681467715],
-                // Уровень масштабирования
-                zoom: 5
-              }
-            }); // Добавьте слой с дорогами и зданиями
-            map.addChild(new YMapDefaultSchemeLayer());
+  window.onload = function () {
+    initMap();
+    function initMap() {
+      return _initMap.apply(this, arguments);
+    }
+    function _initMap() {
+      _initMap = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        var _ymaps, YMap, YMapDefaultSchemeLayer, YMapMarker, YMapDefaultFeaturesLayer, map, markersData;
+        return _regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return ymaps3.ready;
+            case 2:
+              _ymaps = ymaps3, YMap = _ymaps.YMap, YMapDefaultSchemeLayer = _ymaps.YMapDefaultSchemeLayer, YMapMarker = _ymaps.YMapMarker, YMapDefaultFeaturesLayer = _ymaps.YMapDefaultFeaturesLayer; //const { YMapDefaultMarker } = await import("@yandex/ymaps3-default-ui-theme");
+              // Иницилиазируем карту
+              map = new YMap(
+              // Передаём ссылку на HTMLElement контейнера
+              document.getElementById("map"),
+              // Передаём параметры инициализации карты
+              {
+                location: {
+                  // Координаты центра карты
+                  center: [52.97491484537261, 51.17811681467715],
+                  // Уровень масштабирования
+                  zoom: 5
+                }
+              }); // Добавьте слой с дорогами и зданиями
+              map.addChild(new YMapDefaultSchemeLayer());
 
-            // Добавьте слой для маркеров
-            map.addChild(new YMapDefaultFeaturesLayer());
-            markersData = [{
-              coordinates: [37.588144, 55.733842]
-            }, {
-              coordinates: [44.579885253511264, 48.50070028427699]
-            }, {
-              coordinates: [38.982983348682154, 45.04095308652142]
-            }, {
-              coordinates: [45.96716545127952, 51.58999822864551]
-            }, {
-              coordinates: [39.203627820917944, 51.674969632719595]
-            }, {
-              coordinates: [44.563925, 40.208926]
-            }, {
-              coordinates: [82.9742528817798, 55.02716234040702]
-            }];
-            markersData.forEach(function (_ref) {
-              var coordinates = _ref.coordinates;
-              var markerElement = document.createElement("div");
-              markerElement.className = "target";
-              var marker = new YMapMarker({
-                coordinates: coordinates,
-                draggable: true
-              }, markerElement);
-              map.addChild(marker);
-            });
-          case 8:
-          case "end":
-            return _context.stop();
-        }
-      }, _callee);
-    }));
-    return _initMap.apply(this, arguments);
-  }
+              // Добавьте слой для маркеров
+              map.addChild(new YMapDefaultFeaturesLayer());
+              markersData = [{
+                coordinates: [37.588144, 55.733842]
+              }, {
+                coordinates: [44.579885253511264, 48.50070028427699]
+              }, {
+                coordinates: [38.982983348682154, 45.04095308652142]
+              }, {
+                coordinates: [45.96716545127952, 51.58999822864551]
+              }, {
+                coordinates: [39.203627820917944, 51.674969632719595]
+              }, {
+                coordinates: [44.563925, 40.208926]
+              }, {
+                coordinates: [82.9742528817798, 55.02716234040702]
+              }];
+              markersData.forEach(function (_ref) {
+                var coordinates = _ref.coordinates;
+                var markerElement = document.createElement("div");
+                markerElement.className = "target";
+                var marker = new YMapMarker({
+                  coordinates: coordinates,
+                  draggable: true
+                }, markerElement);
+                map.addChild(marker);
+              });
+            case 8:
+            case "end":
+              return _context.stop();
+          }
+        }, _callee);
+      }));
+      return _initMap.apply(this, arguments);
+    }
+  };
+  /* initMap();
+    async function initMap() {
+      // Промис `ymaps3.ready` будет зарезолвлен, когда загрузятся все компоненты основного модуля API
+      await ymaps3.ready;
+        const { YMap, YMapDefaultSchemeLayer, YMapMarker, YMapDefaultFeaturesLayer } = ymaps3;
+      //const { YMapDefaultMarker } = await import("@yandex/ymaps3-default-ui-theme");
+      // Иницилиазируем карту
+      const map = new YMap(
+          // Передаём ссылку на HTMLElement контейнера
+          document.getElementById("map"),
+            // Передаём параметры инициализации карты
+          {
+              location: {
+                  // Координаты центра карты
+                  center: [52.97491484537261, 51.17811681467715],
+                    // Уровень масштабирования
+                  zoom: 5,
+              },
+          }
+      );
+        // Добавьте слой с дорогами и зданиями
+      map.addChild(new YMapDefaultSchemeLayer());
+        // Добавьте слой для маркеров
+      map.addChild(new YMapDefaultFeaturesLayer());
+        const markersData = [
+          { coordinates: [37.588144, 55.733842] },
+          { coordinates: [44.579885253511264, 48.50070028427699] },
+          { coordinates: [38.982983348682154, 45.04095308652142] },
+          { coordinates: [45.96716545127952, 51.58999822864551] },
+          { coordinates: [39.203627820917944, 51.674969632719595] },
+          { coordinates: [44.563925, 40.208926] },
+          { coordinates: [82.9742528817798, 55.02716234040702] },
+      ];
+      markersData.forEach(({ coordinates }) => {
+          const markerElement = document.createElement("div");
+          markerElement.className = "target";
+          const marker = new YMapMarker({ coordinates, draggable: true }, markerElement);
+          map.addChild(marker);
+      });
+  } */
 };
 
 
