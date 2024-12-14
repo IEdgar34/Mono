@@ -15,7 +15,7 @@ module.exports = {
 
     watch: false,
     devtool: "source-map",
-    mode: "development",
+    mode: "production",
     module: {
         rules: [
             {
@@ -86,7 +86,6 @@ module.exports = {
         }),
         new CopyWebpackPlugin({
             patterns: [
-                { from: "src/images", to: "images" },
                 { from: "src/fonts", to: "fonts" },
                 { from: "src/icons", to: "icons" },
                 { from: "src/css", to: "css" },

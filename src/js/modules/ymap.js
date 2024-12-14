@@ -5,7 +5,7 @@ const yMapsInit = () => {
         script.async = true;
         document.head.appendChild(script);
         //
-        
+
         script.onload = () => {
             collback();
         };
@@ -59,7 +59,6 @@ const yMapsInit = () => {
             map.addChild(marker);
         });
     }
-    /*   initMap(); */
 };
 
 export { yMapsInit };

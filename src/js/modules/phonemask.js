@@ -114,14 +114,10 @@ const mask = () => {
         },
     };
     //провермяем инпуты во время ввода
-
     let nameInp = document.querySelector("input[name='name']");
     let textarea = document.querySelector("#textarea");
-
     nameInp.addEventListener("input", () => validateRules[nameInp.getAttribute("name")](nameInp.value, nameInp));
     textarea.addEventListener("input", () => validateRules[textarea.getAttribute("name")](textarea.value, textarea));
-    nameInp.addEventListener("change", (e) => document.documentElement.style.setProperty("--resetcolor", "rgb(245, 245, 245)"));
-    textarea.addEventListener("change", (e) => document.documentElement.style.setProperty("--resetcolor", "rgb(245, 245, 245)"));
     //получаем результат проверки,для формы
     function examinationInputs(inputSelector) {
         let arr = [];

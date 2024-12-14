@@ -111,6 +111,30 @@
             &:has(.invalid) {
                 row-gap: 28px;
             }
+            #phone {
+                &:-webkit-autofill {
+                    color: var(--color-red-norml) !important;
+                }
+                &:-internal-autofill-selected {
+                    border: none;
+                    appearance: none;
+                    background-image: none !important;
+                    background-color: var(--resetcolor) !important;
+                    box-shadow: 0 0 0px 1000px var(--resetcolor) inset;
+                }
+            }
+            #name {
+                &:-webkit-autofill {
+                    color: var(--color-red-norml) !important;
+                }
+                &:-internal-autofill-selected {
+                    border: none;
+                    appearance: none;
+                    background-image: none !important;
+                    background-color: var(--color--grey-normal) !important;
+                    box-shadow: 0 0 0px 1000px var(--color--grey-normal) inset;
+                }
+            }
         }
 
         &__inputs {
@@ -124,16 +148,17 @@
             font-size: 16px;
             font-weight: 400;
             line-height: 100%;
-            &:-webkit-autofill {
+
+            /* &:-webkit-autofill {
                 color: var(--color-red-norml) !important;
             }
             &:-internal-autofill-selected {
                 border: none;
                 appearance: none;
                 background-image: none !important;
-                background-color: var(--resetcolor) !important;
+                background-color: var(--resetcolor);
                 box-shadow: 0 0 0px 1000px var(--resetcolor) inset;
-            }
+            } */
 
             &::placeholder {
                 color: var(--color-grey-light);
