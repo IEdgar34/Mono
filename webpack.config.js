@@ -69,10 +69,10 @@ module.exports = {
             filename: "style.css",
         }),
         new HtmlWebpackPlugin({
-            title: "Mono",
-            scriptLoading: "module",
-            inject: "body",
             template: "src/index.html",
+            title: "Mono",
+            scriptLoading: "defer",
+            inject: "body",
             hash: true,
         }),
         new BrowserSyncPlugin({
