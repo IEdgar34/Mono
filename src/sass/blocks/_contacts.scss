@@ -104,12 +104,24 @@
             row-gap: 28px;
         }
         &__row-block {
+            width: 100%;
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
             row-gap: 12px;
+            @media(max-width:1287px){
+                flex-direction: column;
+                
+            }
             &:has(.invalid) {
                 row-gap: 28px;
+            }
+            span{
+                width: 48%;
+                @media(max-width:1287px){
+                    width: 100%;
+                    
+                }
             }
             #phone {
                 &:-webkit-autofill {
@@ -138,6 +150,7 @@
         }
 
         &__inputs {
+            width: 100%;
             padding: 17px 17px 17px 20px;
             border-radius: 14px;
             background-color: var(--color--grey-normal);
